@@ -1,3 +1,22 @@
+<?php
+
+$sikeres = false;
+
+if ($_SERVER["REQUEST_METHOD"] === "POST"){
+    $nev = $_POST["nev"] ?? null;
+    $jelszo = $_POST["jelszo"] ?? null;
+    $jelszoIsmet = $_POST["jelszoIsmet"] ?? null;
+
+    if (
+        strlen($nev) <= 20 && 
+        strlen($jelszo) >= 8 && 
+        $jelszo == $jelszoIsmet &&
+        trim($nev) != "" &&
+        trim($jelszo) != ""
+        ) $sikeres = true;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +29,7 @@
 </head>
 <body>
 
-<form>
+<form method="POST">
     <div>
         <span>Név:</span>
         <input type="text" name="nev" id="nev">
@@ -28,6 +47,16 @@
     </div>
     <div>
         <input type="submit" value="Regisztráció">
+    </div>
+    <div>
+        <?php 
+        
+        if ($sikeres){
+            sleep(2);
+            echo "Sikeres regisztráció!";
+        } 
+
+        ?>
     </div>
 </form>
     
