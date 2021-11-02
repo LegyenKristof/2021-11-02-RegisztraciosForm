@@ -1,0 +1,16 @@
+span{
+    width: 100px;
+    display: inline-block;
+}
+
+div{
+    margin: 10px;
+}
+
+#nevSzamlalo{
+    color: green;
+}
+
+#jelszoSzamlalo{
+    color: red;
+}
