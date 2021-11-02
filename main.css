@@ -9,8 +9,15 @@ div{
 
 #nevSzamlalo{
     color: green;
+    width: 300px;
 }
 
 #jelszoSzamlalo{
     color: red;
+    width: 300px;
+}
+
+#jelszoIsmetHelyes{
+    color: red;
+    width: 300px;
 }
