@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
         <span id="jelszoIsmetHelyes"></span>
     </div>
     <div>
-        <input type="submit" value="Regisztráció">
+        <input type="submit" value="Regisztráció" id="regisztralGomb">
     </div>
     <div>
         <?php 

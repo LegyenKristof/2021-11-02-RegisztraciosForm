@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", init)
-let nev, nevSzamlalo, jelszo, jelszoSzamlalo, jelszoIsmet, jelszoIsmetHelyes;
+let nev, nevSzamlalo, jelszo, jelszoSzamlalo, jelszoIsmet, jelszoIsmetHelyes, regisztralGomb;
 
 function init(){
     nev = document.getElementById("nev");
@@ -8,10 +8,12 @@ function init(){
     jelszoSzamlalo = document.getElementById("jelszoSzamlalo");
     jelszoIsmet = document.getElementById("jelszoIsmet");
     jelszoIsmetHelyes = document.getElementById("jelszoIsmetHelyes");
+    regisztralGomb = document.getElementById("regisztralGomb");
 
     nev.addEventListener("input", nevValtas);
     jelszo.addEventListener("input", jelszoValtas);
     jelszoIsmet.addEventListener("change", jelszoMegegyezes);
+    regisztralGomb.addEventListener("click", regisztral);
 }
 
 function nevValtas(){
@@ -31,4 +33,16 @@ function jelszoValtas(){
 function jelszoMegegyezes(){
     if (jelszo.value != jelszoIsmet.value) jelszoIsmetHelyes.innerHTML = "A jelszavak nem egyeznek meg";
     else jelszoIsmetHelyes.innerHTML = "";
+}
+
+function regisztral(e){
+    if (
+        nev.value.length > 20 || 
+        jelszo.value.length < 8 || 
+        jelszo.value != jelszoIsmet.value || 
+        nev.value.trim() == "" || 
+        jelszo.value.trim() == ""
+        ){
+        e.preventDefault();
+    }
 }
